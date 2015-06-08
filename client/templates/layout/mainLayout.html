@@ -1,3 +1,16 @@
 <template name="mainLayout">
+<nav class="main-nav ">
+<ul>
+	<li><a href="{{pathFor 'viewStories'}}"
+		class="{{isActiveRoute regex='settings'}}">View Stories</a>
+	</li>
+	<li><a href="{{pathFor 'startStory'}}"
+		class="{{isActiveRoute regex='settings'}}">Start Story</a>
+	</li>
+	<li><a href="{{pathFor 'home'}}"
+		class="{{isActiveRoute regex='surveyList'}}">home</a></li>
+	
+</ul>
+</nav>
 {{> yield}}
 </template>

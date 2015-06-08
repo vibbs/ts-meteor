@@ -1,0 +1,21 @@
+.main-nav{
+	background-color: #10253F;
+	margin-bottom: 1.5em;
+}
+
+.main-nav ul{
+	overflow: hidden;
+	margin: 0 auto;
+}
+
+.main-nav a{
+	text-decoration: none;
+	display:  block;
+	color: white;
+	float: right;
+	padding: 1em;
+}
+
+.main-nav li {
+    display: inline;
+}
