@@ -15,3 +15,6 @@ accounts-ui-unstyled
 jquery
 zimme:iron-router-active
 meteorhacks:npm
+
+
+npm-container
