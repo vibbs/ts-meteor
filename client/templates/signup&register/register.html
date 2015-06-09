@@ -1,0 +1,28 @@
+<template name="register">
+<div class="form">
+	<h2>Register</h2>
+	<ul>
+		<li>
+			<label>Email</label>
+			<input type="email" id="email-register" value="" />
+		</li>
+		<li>
+			<label>First Name</label>
+			<input type="text" id="fname-register" value=""/>
+		</li>
+		<li>
+			<label>Last Name</label>
+			<input type="text" id="lname-register" value="" autocomplete="off"/>
+		</li>
+		<li>
+			<label>Password</label>
+			<input type="password" id="password-register" value=""/>
+		</li>
+		<li>
+			<button id="register-button">Login</button>
+		</li>
+	</ul>
+
+	<a href="{{pathFor 'login'}}" id="back-to-login">Back to login</a>
+</div>
+</template>

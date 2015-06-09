@@ -1,0 +1,25 @@
+<template name="login">
+<div class="form" id="login-form">
+	<h2>Login</h2>
+	<ul>
+		<li>
+			<label>Email</label>
+			<input type="text" id="login-email" placeholder="example@gmail.com"/>
+		</li>
+		<li>
+			<label>Password</label>
+			<input type="password" id="login-password" placeholder="password"/>
+		</li>
+		<li>
+			<button id="login-button">Login</button>
+		</li>
+		<li>
+			{{#if hasErrors}}
+				<p class="error">{{errors}}</p>
+			{{/if}}
+		</li>
+	</ul>
+	<a href="{{pathFor 'register'}}" id="sign-up">New user? Sign up!</a>
+	<a href="" id="forgot-password">Forgot Password?</a>
+</div>
+</template>
