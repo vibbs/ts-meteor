@@ -1,3 +1,18 @@
 <template name="viewStories">
-viewStories
+{{> category_based}}
+
+{{> allStories}}
+</template>
+
+<template name="category_based">
+{{#each categories}}
+		{{> category}}
+{{/each}}
+</template>
+
+
+<template name="allStories">
+{{#each stories}}
+		{{> story}}
+{{/each}}
 </template>

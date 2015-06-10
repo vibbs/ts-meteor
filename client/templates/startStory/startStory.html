@@ -1,4 +1,35 @@
 <template name="startStory">
-start story
+
+<h2>Start a New Story</h2>
+
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+
+<div>
+	<input id="story_title" type="text" placeholder="Title" /><br>
+	<input id="story_line" type="textarea" placeholder="First Story Line" /><br>
+	<input id="media" type="file" onchange="readURL(this);" /><br>
+	<img id="img_display" src="#" alt = ""/><br>
+	Add visiual to the story<br>
+	<button class="submitStory">Submit</button>
+</div>
+
+<script type="text/javascript">
+	function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#img_display')
+                    .attr('src', e.target.result)
+                    .width(150)
+                    .height(200);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+</script>
 </template>
 

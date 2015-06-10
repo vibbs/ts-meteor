@@ -6,7 +6,7 @@ Template.login.events({
 			if (error) { //Show user why he can't log in
 				Session.set('errors', error.reason);
 			}else{// Head to homepage
-				Router.go('surveyList');
+				Router.go('home');
 			}
 		});
 	}
