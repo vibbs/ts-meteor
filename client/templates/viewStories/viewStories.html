@@ -1,20 +1,29 @@
 <template name="viewStories">
 {{> category_based}}
 
+<h1>All stories so far</h1>
+{{#each stories}}
 {{> allStories}}
+{{/each}}
 
-<a href="{{pathFor 'editStory'}}" >Edit</a>
 </template>
 
 <template name="category_based">
 {{#each categories}}
-		{{> category}}
+		{{category}}
 {{/each}}
 </template>
 
 
 <template name="allStories">
-{{#each stories}}
-		{{> story}}
-{{/each}}
+<div >
+
+	<tr >
+		
+		<td> <a href="{{pathFor 'onestoryView'}}">{{title}}</a> </td>
+		<td class="delete"> <img class="icon" src="/images/delete.png" style="width:20px; height:20px;"> </td>
+	</tr>
+	
+</div>
 </template>
+

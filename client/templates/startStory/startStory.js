@@ -22,6 +22,18 @@ Template.startStory.events({
 		console.log(storyLine);
 		console.log(media);
 		console.log(StoryCategory);
+
+        //story object: makes better data structure:
+        //creator_id : user_id,
+        var storylineObj = {
+                _id: new Meteor.Collection.ObjectID()._str,
+                text : storyLine,
+                likes : [],
+                creator_id : 1234,
+                media_file_id : null,
+                comments : [],
+                createdOn : new Date()
+            };
 		
 
 		if (file) {
@@ -38,20 +50,21 @@ Template.startStory.events({
 
         //Meteor.call('insertStoryLine', story_id, storyLine, user_id, mediafile_id);
         //need to work on the media file id storage by that package manager..
-
+/*
         Meteor.call('insertStoryLine', null, storyLine, 1234, null);
         var storylineObj = StoryLine.findOne({storyLine:storyLine, creator_id : 1234});
         console.log(storylineObj);
         console.log(storylineObj._id);
         //now adding the story object---
-        Meteor.call('insertStory', storyTitle, storylineObj._id,1234); 
+        */
+        Meteor.call('insertStory', storyTitle, storylineObj,1234,StoryCategory); 
         var storyObj = Story.findOne({title : storyTitle,creator_id:1234});
-        console.log("final storyobject"+storyObj);
+        console.log(storyObj);
         console.log(storyObj._id);
 
-        Meteor.call('putStoryID', storylineObj._id, storyObj._id);
-        var storylineObj2 = StoryLine.findOne({storyLine:storyLine, creator_id : 1234});
-        console.log("final storylineobject"+storylineObj2);
+        //Meteor.call('putStoryID', storylineObj._id, storyObj._id);
+        //var storylineObj2 = StoryLine.findOne({storyLine:storyLine, creator_id : 1234});
+       // console.log("final storylineobject"+storylineObj2);
         //this should take care of evreythign
 
 	}
