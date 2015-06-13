@@ -17,3 +17,6 @@ meteorhacks:npm
 
 
 npm-container
+twbs:bootstrap
+cfs:standard-packages
+autopublish

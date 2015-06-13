@@ -7,17 +7,23 @@ Template.register.events({
 		var username = template.find("#username-register").value;
 		var fname = template.find("#fname-register").value;
 		var lname = template.find("#lname-register").value;
-		var gender = template.find("#gender-register").value;
-		var dob = template.find("#dob-register").value;
-		var password1 = template.find("#password1-register").value;
-		var password2 = template.find("#password2-register").value;
-		var email = template.find("#email-register").value;
-
-		if(password1 != password2){
-			//alert(error.reason);
-			Session.set('message', "Passwords don't match!!");
-				Router.go('register');
+		var gender;
+		if (document.getElementById('male').checked) {
+  			gender = document.getElementById('male').value;
+		}else {  
+			gender = document.getElementById('female').value;
 		}
+		//var dob = template.find("#dob-register").value;
+		var password = template.find("#password-register").value;
+		var email = template.find("#email-register").value;
+		console.log(username);
+		console.log(fname);
+		console.log(lname);
+		console.log(gender);
+		//console.log(dob);
+		console.log(password);
+		console.log(email);
+
 
 		//Add an account document to the user collection
 		/*
@@ -38,7 +44,7 @@ Template.register.events({
 		});
 */
 
-		Router.go('success');
+		//Router.go('success');
 	},
 });
 
