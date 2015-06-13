@@ -1,10 +1,16 @@
-Session.set('storyID',this._id);
+
+
 
 Template.onestoryView.helpers({
 	id : function(){
-		return Session.get('storyID');
+		Session.set('storyID',this._id);
+		console.log(this._id);
 	}
 
+});
+
+Template.alllines.helpers({
+	
 });
 
 Template.onestoryView.events({
@@ -12,7 +18,7 @@ Template.onestoryView.events({
 		console.log("storyline added");
 		//console.log(this._id);
 		
-		console.log(Session.get('storyID'));
+		//console.log(Session.get('storyID'));
 		//console.log(Story.findOne({_id:Session.get('storyID')}));
 
 		
@@ -45,17 +51,29 @@ Template.onestoryView.events({
         template.find("#media").value = null;
         template.find("#story_line").value = "";
 
-        //Meteor.call('addStoryObj', this._id, storylineObj); 
+        Meteor.call('addStoryObj', this._id, storylineObj); 
        
 	},
 	'click .delete': function (event, template) {
 		console.log(this._id);
-		console.log(Session.get('storyID'));
-		console.log(Story.find({"storyLines._id" :  this._id }, { "storyLines.$": 1, _id : 0 }));
+		//console.log(Session.get('storyID'));
+		
+		//var obj = Story.findOne({"_id" :  Session.get('storyID') });
+		//console.log(obj.storyLines);
 		//i need to get the story _id which is not being able to retrive from the database.
 		var storyID = Session.get('storyID');
 		console.log(storyID);
-		//Meteor.call("deleteStoryLine",storyID, this._id);
+		//thi below call works
+		Meteor.call("deleteStoryLine",Session.get('storyID'), this._id);
+	},
+	'click .edit-button': function (event, template) {
+		var newStoryline = prompt("Change this line:\n'" +this.text+"'");
+		console.log(this._id);
+		console.log(newStoryline);
+		if (newStoryline!=null) {
+			Meteor.call("deleteStoryLine",Session.get('storyID'),this._id, newStoryline);
+		};
+		
 	}
 
 });

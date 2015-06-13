@@ -1,6 +1,7 @@
 <template name="onestoryView">
 <h2 id="header" value = "{{title}}">{{title}}</h2>
-{{id}}
+<h1 style="display:none">{{id}}</h1>
+
 <p>
 	{{#each storyLines}}
 		{{> alllines}}
@@ -36,7 +37,7 @@ Next Story line:<input id="story_line" type="textarea" placeholder="Story Line" 
 <div id = "line" value = "text" >
 
 	<tr >
-		
+		<td class="edit-button"><img class="icon" src="/images/edit.png" style="width:20px; height:20px;"></td>
 		<td> {{text}}</td>
 		<td class="delete"> <img class="icon" src="/images/delete.png" style="width:20px; height:20px;"> </td>
 	</tr>
