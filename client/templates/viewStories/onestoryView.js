@@ -64,16 +64,21 @@ Template.onestoryView.events({
 		var storyID = Session.get('storyID');
 		console.log(storyID);
 		//thi below call works
-		Meteor.call("deleteStoryLine",Session.get('storyID'), this._id);
+		//Meteor.call("deleteStoryLine",Session.get('storyID'), this._id);
 	},
 	'click .edit-button': function (event, template) {
 		var newStoryline = prompt("Change this line:\n'" +this.text+"'");
 		console.log(this._id);
 		console.log(newStoryline);
+		var storyObj = Story.findOne({_id:Session.get('storyID')});
+		
+
+		console.log(storyObj.storyLines);
 		if (newStoryline!=null) {
-			Meteor.call("deleteStoryLine",Session.get('storyID'),this._id, newStoryline);
+			Meteor.call("updateStoryLine",Session.get('storyID'),this._id, newStoryline);
 		};
 		
 	}
 
 });
+
