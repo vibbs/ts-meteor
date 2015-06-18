@@ -26,8 +26,12 @@ Template.onestoryView.events({
 		var media = template.find("#media").value;
 		
 
+		
+		console.log(media);
+		console.log(fileObj);
+
 		var file    = document.querySelector('input[type=file]').files[0];
-	
+		var fileObj = Media.insert(file);
 
         //story object: makes better data structure:
         //creator_id : user_id,
@@ -36,11 +40,13 @@ Template.onestoryView.events({
                 text : storyLine,
                 likes : [],
                 creator_id : 1234,
-                media_file_id : null,
+                media_file_id : fileObj,
                 comments : [],
                 createdOn : new Date()
             };
-		
+		var res = Meteor.call('addStoryObj', this._id, storylineObj); 
+		console.log("response");
+		console.log(res);
 
 		if (file) {
             var reader = new FileReader();
@@ -49,9 +55,10 @@ Template.onestoryView.events({
             console.log(reader);
         }
         template.find("#media").value = null;
+        template.find("#media_url").value = null;
         template.find("#story_line").value = "";
 
-        Meteor.call('addStoryObj', this._id, storylineObj); 
+        
        
 	},
 	'click .delete': function (event, template) {
@@ -64,7 +71,7 @@ Template.onestoryView.events({
 		var storyID = Session.get('storyID');
 		console.log(storyID);
 		//thi below call works
-		//Meteor.call("deleteStoryLine",Session.get('storyID'), this._id);
+		Meteor.call("deleteStoryLine",Session.get('storyID'), this._id);
 	},
 	'click .edit-button': function (event, template) {
 		var newStoryline = prompt("Change this line:\n'" +this.text+"'");

@@ -1,0 +1,19 @@
+<template name="mainLayout2">
+<nav class="main-nav ">
+<ul>
+
+<li><a href="{{pathFor 'register'}}"
+		class="{{isActiveRoute regex='register'}}">register</a></li>
+		<li><a href="{{pathFor 'login'}}"
+		class="{{isActiveRoute regex='login'}}">login</a></li>
+	<li><a href="{{pathFor 'viewStories'}}"
+		class="{{isActiveRoute regex='viewStories'}}">View Stories</a>
+	</li>
+	<li><a href="{{pathFor 'home'}}"
+		class="{{isActiveRoute regex='home'}}">home</a></li>
+	
+</ul>
+
+</nav>
+{{> yield}}
+</template>

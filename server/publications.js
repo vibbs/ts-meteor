@@ -10,3 +10,6 @@ Meteor.publish('user', function(){
 Meteor.publish('comment', function(){
 	return Comment.find();
 });
+Meteor.publish('media', function(){
+	return Media.find();
+});

@@ -8,7 +8,8 @@
 	{{/each}}
 </p>
 Next Story line:<input id="story_line" type="textarea" placeholder="Story Line" /><br>
-<input id="media" type="file" onchange="readURL(this);" /><br>
+<input id="media" type="file" accept="image/gif, image/jpeg, image/png" onchange="readURL(this);" />
+<br>
 	<img id="img_display" src="#" alt = ""/><br>
 	Add visiual to the story<br>
 	<button class="submitStory">Submit</button>
@@ -39,8 +40,34 @@ Next Story line:<input id="story_line" type="textarea" placeholder="Story Line" 
 	<tr >
 		<td class="edit-button"><img class="icon" src="/images/edit.png" style="width:20px; height:20px;"></td>
 		<td> {{text}}</td>
+		{{#if media_file_id}}
+		
+		
+		<td> <a href="{{media_file_id.url}}" target="_blank"><img src="{{media_file_id.url}}" alt="" class="thumbnail" style="width:150px;height:200px;"/></a></td>
+		<!-- for later implementation-->
+		{{#if media_file_id.isImage}}
+		{{/if}}
+
+		{{#if isAudio}}
+		{{/if}}
+
+		{{#if isVideo}}
+		{{/if}}
+
+
+		{{/if}}
 		<td class="delete"> <img class="icon" src="/images/delete.png" style="width:20px; height:20px;"> </td>
 	</tr>
 	
 </div>
+</template>
+
+<template name="imageView">
+  <div class="imageView">
+    {{#each images}}
+      <div>
+        <a href="{{this.url}}" target="_blank"><img src="{{this.url store='thumbs' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt="" class="thumbnail" /></a>
+      </div>
+    {{/each}}
+  </div>
 </template>
