@@ -10,7 +10,11 @@ Template.onestoryView.helpers({
 });
 
 Template.alllines.helpers({
-	
+	bool : function(){
+		console.log(this.line_creator_id);
+		return Meteor.userId()==this.line_creator_id?  true :false;
+		//return true;
+	}
 });
 
 Template.onestoryView.events({
@@ -31,7 +35,10 @@ Template.onestoryView.events({
 		console.log(fileObj);
 
 		var file    = document.querySelector('input[type=file]').files[0];
-		var fileObj = Media.insert(file);
+		var fileObj ;
+		if(file){
+			fileObj = Media.insert(file);
+		}
 
         //story object: makes better data structure:
         //creator_id : user_id,
@@ -39,7 +46,7 @@ Template.onestoryView.events({
                 _id: new Meteor.Collection.ObjectID()._str,
                 text : storyLine,
                 likes : [],
-                creator_id : 1234,
+                line_creator_id : Meteor.userId(),
                 media_file_id : fileObj,
                 comments : [],
                 createdOn : new Date()

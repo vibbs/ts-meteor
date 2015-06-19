@@ -22,14 +22,11 @@ Template.startStory.events({
 		console.log(storyLine);
 		console.log(media);
 		console.log(StoryCategory);
-        var fileObj = Media.insert(file);
+        var fileObj;
         //story object: makes better data structure:
         //creator_id : user_id,
 		if (file) {
-            var reader = new FileReader();
-            reader.readAsDataURL(file);
-            console.log("data of the image");
-            console.log(reader);
+             fileObj = Media.insert(file);
         }
         template.find("#story_title").value = "";
         template.find("#story_line").value = "";
@@ -40,7 +37,7 @@ Template.startStory.events({
                 _id: new Meteor.Collection.ObjectID()._str,
                 text : storyLine,
                 likes : [],
-                creator_id : 1234,
+                line_creator_id : Meteor.userId(),
                 media_file_id : fileObj,
                 comments : [],
                 createdOn : new Date()
@@ -58,8 +55,8 @@ Template.startStory.events({
         console.log(storylineObj._id);
         //now adding the story object---
         */
-        Meteor.call('insertStory', storyTitle, storylineObj,1234,StoryCategory); 
-        var storyObj = Story.findOne({title : storyTitle,creator_id:1234});
+        Meteor.call('insertStory', storyTitle, storylineObj,Meteor.userId(),StoryCategory); 
+        var storyObj = Story.findOne({title : storyTitle,creator_id:Meteor.userId()});
         console.log(storyObj);
         console.log(storyObj._id);
 

@@ -1,3 +1,44 @@
 <template name="userDashBoard">
 userdashboard
+{{test}}
+<p>
+	{{#each story}}
+		<p>{{title}}</p>
+	{{/each}}
+
+	<p> CONTRIBUTED</p>
+	{{contributed}}
+	{{#each contributed}}
+		<p>boner{{title}}</p>
+	{{/each}}
+</p>
+</template>
+
+
+<template name="thisline">
+<div id = "line" value = "text" >
+
+	<tr >
+		<td class="edit-button"><img class="icon" src="/images/edit.png" style="width:20px; height:20px;"></td>
+		<td> {{text}}</td>
+		{{#if media_file_id}}
+		
+		
+		<td> <a href="{{media_file_id.url}}" target="_blank"><img src="{{media_file_id.url}}" alt="" class="thumbnail" style="width:150px;height:200px;"/></a></td>
+		<!-- for later implementation-->
+		{{#if media_file_id.isImage}}
+		{{/if}}
+
+		{{#if isAudio}}
+		{{/if}}
+
+		{{#if isVideo}}
+		{{/if}}
+
+
+		{{/if}}
+		<td class="delete"> <img class="icon" src="/images/delete.png" style="width:20px; height:20px;"> </td>
+	</tr>
+	
+</div>
 </template>

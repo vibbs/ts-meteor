@@ -26,23 +26,44 @@ Template.register.events({
 
 
 		//Add an account document to the user collection
-		/*
-		Accounts.createUser({
+		
+		var accUser = Accounts.createUser({
 			email: email,
 			password: password,
 			profile: {
+				username : username,
 				first_name: fname,
 				last_name: lname,
+				dateBirth : null,
+				gender : gender,
+				currentProfileImageID : null,
+				currentCoverImageID : null,
+				profileImages : [],
+				coverImages : [],
+				friends : [],
+				pendingRequests : [],
+				requestSent : [],
+				storylikes : [],
+				storyLineLike : [],
+				storyStarted : [],
+				storyLineWrote : [],
+				following : [],
+				twitterToken : null,
+				fbToken : null,
+				googlePlusToken : null,
 				accountSetupComplete: false
 			},
 		}, function(error) { // Catch any errors
 			if( error ) {
 				console.log(error.reason);
 				alert(error.reason);
-				Router.go('register');
+			}else{
+				alert("Registration Successful! Thank You!\n Get started by creating a new story");
+				console.log(accUser);
+				Router.go('login');
+				//do a send email fucntion
 			}
 		});
-*/
 
 		//Router.go('success');
 	},

@@ -2,10 +2,14 @@ Template.viewStories.helpers({
 	stories: function  () {
 		return Story.find();
 	}
+
 });
 
 Template.allStories.helpers({
-	
+	bool : function(){
+		console.log(this.creator_id);
+		return Meteor.userId()==this.creator_id?  true :false;
+	}
 
 });
 
