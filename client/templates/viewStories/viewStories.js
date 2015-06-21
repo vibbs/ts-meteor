@@ -16,6 +16,7 @@ Template.allStories.helpers({
 Template.viewStories.events({
 	'click .delete': function (event, template) {
 		Meteor.call("deleteStory", this._id);
+		Meteor.users.update({_id:Meteor.user()._id}, { $pull: {'profile.storyStarted' : this._id} });
 	},
 	'click .edit-button': function (event, template) {
 		var newTitle = prompt("Change this title:\n'" +this.title+"'");
@@ -23,7 +24,7 @@ Template.viewStories.events({
 		console.log(newTitle);
 		var storyObj = Story.findOne({_id:this._id});
 		console.log(storyObj);
-		if (newTitle!=null) {
+		if (newTitle!="") {
 			Meteor.call("updateStoryTitle",this._id, newTitle);
 		};
 		

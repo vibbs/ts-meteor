@@ -1,17 +1,20 @@
 <template name="onestoryView">
-<h2 id="header" value = "{{title}}">{{title}}</h2>
-<h1 style="display:none">{{id}}</h1>
-
-<p>
+<h2 id="header" value = "{{title}}">Title: {{title}}</h2>
+<h4 >Story lines:</h4>
+<h1 style="display:none;">{{id}}</h1>
+<div class = "">
 	{{#each storyLines}}
+	<div class=" col-md-12  storylinebox">
 		{{> alllines}}
+	</div>
+		
 	{{/each}}
-</p>
-
+</div>
+<br><br><br>
 {{#if currentUser}}
-<h5>Next Story line:</h5>h5>
+<h5>Next Story line:</h5>
 <input id="story_line" type="textarea" placeholder="Story Line" /><br>
-<input id="media" type="file" accept="image/gif, image/jpeg, image/png" onchange="readURL(this);" />
+<input id="media" type="file" accept="image/gif, image/jpeg, image/png" onchange="readURL(this);" >
 <br>
 	<img id="img_display" src="#" alt = ""/><br>
 	Add visiual to the story<br>
@@ -40,16 +43,21 @@
 
 <template name="alllines">
 <div id = "line" value = "text" >
-
-	<tr >{{#if bool}}
-		<td class="edit-button"><img class="icon" src="/images/edit.png" style="width:20px; height:20px;"></td>
-		{{/if}}
+<div class = "col-md-1 edit-button">
+	{{#if bool}}
+	
+		<img class="icon" src="/images/edit.png" style="width:20px; height:20px;">
 		
-		<td> {{text}}</td>
+		{{/if}}</div>
+		<div class = "col-md-6">
+		 {{text}}
+		 </div>
+		 <div class = "col-md-4">
 		{{#if media_file_id}}
 		
 		
-		<td> <a href="{{media_file_id.url}}" target="_blank"><img src="{{media_file_id.url}}" alt="" class="thumbnail" style="width:150px;height:200px;"/></a></td>
+		 <a href="{{media_file_id.url}}" target="_blank"><img src="{{media_file_id.url}}" alt="" class="thumbnail" style="width:150px;height:200px;"/></a>
+		 
 		<!-- for later implementation-->
 		{{#if media_file_id.isImage}}
 		{{/if}}
@@ -61,11 +69,16 @@
 		{{/if}}
 
 
-		{{/if}}
+		{{/if}}</div>
+
+<div class = "col-md-1 delete">
+<i class="fa fa-thumbs-down"></i> <i class="fa fa-thumbs-o-up"></i>
 		{{#if bool}}
-		<td class="delete"> <img class="icon" src="/images/delete.png" style="width:20px; height:20px;"> </td>
-		{{/if}}
-	</tr>
+		
+		 <img class="icon" src="/images/delete.png" style="width:20px; height:20px;"> 
+		
+		{{/if}} </div>
+
 	
 </div>
 </template>

@@ -1,44 +1,36 @@
 <template name="userDashBoard">
 userdashboard
-{{test}}
-<p>
-	{{#each story}}
-		<p>{{title}}</p>
-	{{/each}}
+<h1>Welcome {{name}}</h1>
+	<div class = "col-md-12">
 
-	<p> CONTRIBUTED</p>
-	{{contributed}}
-	{{#each contributed}}
-		<p>boner{{title}}</p>
+	<div class = "col-md-6">
+<h3>Stories you have started:</h3>
+
+	{{#each story}}
+		<p>{{> thisStories}}</p><br>
 	{{/each}}
-</p>
+	</div>
+			<div class = "col-md-6">
+			<h3> Contributed to:</h3>
+			
+			{{#each contributed}}
+				<p>{{> thisStories}}</p><br>
+			{{/each}}
+			</div>
+</div>
 </template>
 
 
-<template name="thisline">
-<div id = "line" value = "text" >
-
-	<tr >
-		<td class="edit-button"><img class="icon" src="/images/edit.png" style="width:20px; height:20px;"></td>
-		<td> {{text}}</td>
-		{{#if media_file_id}}
-		
-		
-		<td> <a href="{{media_file_id.url}}" target="_blank"><img src="{{media_file_id.url}}" alt="" class="thumbnail" style="width:150px;height:200px;"/></a></td>
-		<!-- for later implementation-->
-		{{#if media_file_id.isImage}}
-		{{/if}}
-
-		{{#if isAudio}}
-		{{/if}}
-
-		{{#if isVideo}}
-		{{/if}}
+<template name="thisStories">
 
 
-		{{/if}}
-		<td class="delete"> <img class="icon" src="/images/delete.png" style="width:20px; height:20px;"> </td>
-	</tr>
+		<div class = "col-md-6">
+		<a href="{{pathFor 'onestoryView'}}">{{title}}</a> 
+		</div>
+
+
+
+
 	
-</div>
+
 </template>

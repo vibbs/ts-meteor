@@ -1,8 +1,15 @@
-#storybox{
-	width: 200px;
-	height: 30px;
-	box-shadow: 1px;
-	border: 5px;
-	border-color: black;
+.storybox{
+	width: 100%;
+	margin: 0 auto;
+	box-shadow: 2px 2px 12px silver;
+	font-size: 1.2em;
+
+}
+
+.storylinebox{
+	width: 100%;
+	margin: 0 auto;
+	box-shadow: 2px 2px 12px silver;
+	font-size: 1.2em;
 
 }

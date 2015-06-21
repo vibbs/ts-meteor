@@ -1,10 +1,16 @@
 <template name="viewStories">
 {{> category_based}}
-
-<h1>All stories so far</h1>
-{{#each stories}}
-{{> allStories}}
-{{/each}}
+<div class = "col-md-12">
+	<h1>All stories so far</h1>
+			{{#each stories}}
+			<div class = "col-md-6 storybox">
+			{{> allStories}}
+			</div>
+			<div class = "col-md-6">
+			Comments
+			</div>
+			{{/each}}
+</div>
 
 </template>
 
@@ -16,19 +22,32 @@
 
 
 <template name="allStories">
-<div >
 
-	<tr >
+
+	<div class = "col-md-1 edit-button">
 	{{#if bool}}
-		<td class="edit-button"><img class="icon" src="/images/edit.png" style="width:20px; height:20px;"></td>
-		{{/if}}
-
-		<td> <a href="{{pathFor 'onestoryView'}}">{{title}}</a> </td>
-{{#if bool}}
-		<td class="delete"> <img class="icon" src="/images/delete.png" style="width:20px; height:20px;"> </td>
-		{{/if}}
-	</tr>
 	
-</div>
+		<img class="icon" src="/images/edit.png" style="width:20px; height:20px;">
+		
+		{{/if}}</div>
+		
+
+		<div class = "col-md-6">
+		<a href="{{pathFor 'onestoryView'}}">{{title}}</a> 
+		
+		</div>
+
+<div class = "col-md-1 delete">
+<i class="fa fa-comment-o"></i>
+<i class="fa fa-thumbs-down"></i> 
+<i class="fa fa-thumbs-o-up"></i>
+{{#if bool}}
+
+		 <img class="icon" src="/images/delete.png" style="width:20px; height:20px;"> 
+		
+		{{/if}}</div>
+
+	
+
 </template>
 

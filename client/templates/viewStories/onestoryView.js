@@ -91,6 +91,7 @@ Template.onestoryView.events({
 		console.log(storyID);
 		//thi below call works
 		Meteor.call("deleteStoryLine",Session.get('storyID'), this._id);
+		Meteor.users.update({_id:Meteor.user()._id}, { $pull: {'profile.storyLineWrote' : this._id} });
 	},
 	'click .edit-button': function (event, template) {
 		var newStoryline = prompt("Change this line:\n'" +this.text+"'");
@@ -100,7 +101,7 @@ Template.onestoryView.events({
 		
 
 		console.log(storyObj.storyLines);
-		if (newStoryline!=null) {
+		if (newStoryline!="") {
 			Meteor.call("updateStoryLine",Session.get('storyID'),this._id, newStoryline);
 		};
 		

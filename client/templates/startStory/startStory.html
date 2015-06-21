@@ -9,14 +9,13 @@
 	Title:<input id="story_title" type="text" placeholder="Title" /><br>
 	Description:<input id="story_line" type="textarea" placeholder="First Story Line" /><br>
 	Category:<select id= "category">
-		
-		 <option  value = "Horror">Horror</option>
-		 <option  value = "Horror1">Horror1</option>
-		 <option  value = "Horror2">Horror2</option>
-		 <option value = "Horror3">Horror3</option>
+		{{#each cat}}
+		 <option  value = "{{text}}">{{text}}</option>
+		{{/each}}
 		
 
 	</select><br>
+	
 
 	<input id="media" type="file" accept="image/gif, image/jpeg, image/png" onchange="readURL(this);" /><br>
 	<img id="img_display" src="#" alt = ""/><br>
