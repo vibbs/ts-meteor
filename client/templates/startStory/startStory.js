@@ -59,6 +59,7 @@ Template.startStory.events({
         var storyObj = Story.findOne({title : storyTitle,creator_id:Meteor.userId()});
         console.log(storyObj);
         console.log(storyObj._id);
+        Meteor.users.update({_id:Meteor.user()._id}, { $push: {'profile.storyStarted' : storyObj._id} });
 
         //Meteor.call('putStoryID', storylineObj._id, storyObj._id);
         //var storylineObj2 = StoryLine.findOne({storyLine:storyLine, creator_id : 1234});

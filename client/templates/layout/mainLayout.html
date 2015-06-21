@@ -15,13 +15,14 @@
 	<li><a href="{{pathFor 'viewStories'}}"
 		class="{{isActiveRoute regex='viewStories'}}">View Stories</a>
 	</li>
+	{{#if currentUser}}
 	<li><a href="{{pathFor 'startStory'}}"
 		class="{{isActiveRoute regex='startStory'}}">Start Story</a>
 	</li>
+	{{/if}}
 	<li><a href="{{pathFor 'home'}}"
 		class="{{isActiveRoute regex='home'}}">home</a></li>
-		<li>
-		{{> loginButtons}}login1234</li>
+		
 		
 	
 </ul>

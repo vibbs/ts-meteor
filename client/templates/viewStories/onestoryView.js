@@ -4,14 +4,13 @@
 Template.onestoryView.helpers({
 	id : function(){
 		Session.set('storyID',this._id);
-		console.log(this._id);
 	}
 
 });
 
 Template.alllines.helpers({
 	bool : function(){
-		console.log(this.line_creator_id);
+		
 		return Meteor.userId()==this.line_creator_id?  true :false;
 		//return true;
 	}
@@ -30,10 +29,6 @@ Template.onestoryView.events({
 		var media = template.find("#media").value;
 		
 
-		
-		console.log(media);
-		console.log(fileObj);
-
 		var file    = document.querySelector('input[type=file]').files[0];
 		var fileObj ;
 		if(file){
@@ -51,9 +46,24 @@ Template.onestoryView.events({
                 comments : [],
                 createdOn : new Date()
             };
-		var res = Meteor.call('addStoryObj', this._id, storylineObj); 
+		Meteor.call('addStoryObj', this._id, storylineObj); 
+		var res = Story.findOne({_id : this._id});
 		console.log("response");
 		console.log(res);
+		console.log(res.storyLines);
+		var lastKey;
+	
+		for(var key in res.storyLines){
+		    if(res.storyLines.hasOwnProperty(key)){
+		        lastKey = key;
+
+
+		    }
+		}
+		console.log("lastObject");
+		console.log(res.storyLines[lastKey]._id);
+		var responseUpdate = Meteor.users.update({_id:Meteor.user()._id}, { $push: {'profile.storyLineWrote' : res.storyLines[lastKey]._id} });
+		console.log(responseUpdate);
 
 		if (file) {
             var reader = new FileReader();
@@ -64,6 +74,8 @@ Template.onestoryView.events({
         template.find("#media").value = null;
         template.find("#media_url").value = null;
         template.find("#story_line").value = "";
+
+
 
         
        
