@@ -28,12 +28,14 @@ Template.userDashBoard.helpers({
 			  		//console.log("many");
 			  		//console.log(key);
 			  		arrStr.push(Story.findOne({_id:key}));
-			  	};
+			  	}
 			}
 		   
 		   	
 		   	
 		});
+		console.log(arrStr.length);
+	
 
 		return arrStr ;
 	},
@@ -45,3 +47,5 @@ Template.userDashBoard.helpers({
 Template.userDashBoard.events({
 
 });
+
+
