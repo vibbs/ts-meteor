@@ -1,4 +1,10 @@
-var twitter = Meteor.npmRequire('twitter-api');
+
+var twitter = new TwitterApi();
+
+
+Meteor.startup(function () {
+    // code to run on server at startup
+});
 
 Meteor.methods({
     postTweet: function (text) {
