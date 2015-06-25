@@ -62,7 +62,7 @@ Template.startStory.events({
         console.log(storyObj);
         console.log(storyObj._id);
         Meteor.users.update({_id:Meteor.user()._id}, { $push: {'profile.storyStarted' : storyObj._id} });
-        Meteor.users.update({_id:Meteor.user()._id}, { $push: {'profile.storyLineWrote' : storylineObj._id} });
+        //Meteor.users.update({_id:Meteor.user()._id}, { $push: {'profile.storyLineWrote' : storylineObj._id} });
         //Meteor.call('putStoryID', storylineObj._id, storyObj._id);
         //var storylineObj2 = StoryLine.findOne({storyLine:storyLine, creator_id : 1234});
        // console.log("final storylineobject"+storylineObj2);

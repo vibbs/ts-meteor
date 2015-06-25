@@ -27,7 +27,7 @@ Template.userDashBoard.helpers({
 			  	if (Meteor.user().profile.storyStarted[i]!=key) {
 			  		//console.log("many");
 			  		//console.log(key);
-			  		arrStr.push(Story.findOne({_id:key}));
+			  		arrStr.push(Story.findOne({$and : {_id:key, creator_id :Meteor.userId() }}));
 			  	}
 			}
 		   
