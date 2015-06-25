@@ -1,5 +1,13 @@
 <template name="onestoryView">
-<h2 id="header" value = "{{title}}">Title: {{title}}</h2>
+<div>
+		<h2 id="header" value = "{{title}}">Title: {{title}}
+		<i class="fa fa-thumbs-down down"></i>
+		<i class="fa fa-comment-o comment"></i>
+		<i class="fa fa-thumbs-o-up up"></i>
+		</h2>
+</div>
+
+
 <h4 >Story lines:</h4>
 <h1 style="display:none;">{{id}}</h1>
 <div class = "">
@@ -11,7 +19,7 @@
 	{{/each}}
 </div>
 <br><br><br>
-{{#if currentUser}}
+{{#if currentUser}}<br>
 <h5>Next Story line:</h5>
 <input id="story_line" type="textarea" placeholder="Story Line" /><br>
 <input id="media" type="file" accept="image/gif, image/jpeg, image/png" onchange="readURL(this);" >

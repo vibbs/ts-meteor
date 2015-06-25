@@ -3,12 +3,10 @@
 <div class = "col-md-12">
 	<h1>All stories so far</h1>
 			{{#each stories}}
-			<div class = "col-md-6 storybox">
+			<div class = "col-md-12 storybox">
 			{{> allStories}}
 			</div>
-			<div class = "col-md-6">
-			Comments
-			</div>
+			
 			{{/each}}
 </div>
 
@@ -32,7 +30,7 @@
 		{{/if}}</div>
 		
 
-		<div class = "col-md-6">
+		<div class = "col-md-5">
 		<a href="{{pathFor 'onestoryView'}}">{{title}}</a> 
 		
 		</div>
@@ -40,20 +38,29 @@
 
 
 
-<div class = "col-md-1 ">
+<div class = "col-md-3 ">
 
-{{#if bool}}
-		<div class="comment"><i class="fa fa-thumbs-down"></i></div>
-		<div class="up"> <i class="fa fa-comment-o"></i></div>
-		<div class="down"><i class="fa fa-thumbs-o-up"></i></div>
-		{{#each comments}}
-		{{comment}}
+		{{#if currentUser}}
+		<i class="fa fa-thumbs-down down"></i>
+		<i class="fa fa-comment-o comment"></i>
+		<i class="fa fa-thumbs-o-up up"></i>
+
+		<p>Likes: {{count}}  </p>
+		<i class="fa fa-twitter sendtweet"></i>
+
+		Share
+		{{/if}}
+		{{#if bool}}
+		 <img class="icon delete" src="/images/delete.png" style="width:20px; height:20px;"> 
+		{{/if}}
+</div>
+
+<div class = "col-md-3">
+Comments:: <br>
+			{{#each comments}}
+		{{comment}}<br>
 		{{/each}}
-
-		<div class = "delete">
-		 <img class="icon" src="/images/delete.png" style="width:20px; height:20px;"> 
-		</div>
-		{{/if}}</div>
+			</div>
 
 	
 

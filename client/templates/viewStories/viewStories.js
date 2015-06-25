@@ -9,6 +9,10 @@ Template.allStories.helpers({
 	bool : function(){
 		console.log(this.creator_id);
 		return Meteor.userId()==this.creator_id?  true :false;
+	},
+	count : function(){
+		var obj = Story.findOne({ _id: this._id});
+		return obj.like_count;
 	}
 
 });
@@ -20,8 +24,7 @@ Template.viewStories.events({
 	},
 	'click .edit-button': function (event, template) {
 		var newTitle = prompt("Change this title:\n'" +this.title+"'");
-		console.log(this._id);
-		console.log(newTitle);
+		
 		var storyObj = Story.findOne({_id:this._id});
 		console.log(storyObj);
 		if (newTitle!="") {
@@ -30,7 +33,7 @@ Template.viewStories.events({
 		
 	},
 	'click .comment': function (event, template) {
-		console.log("comment");
+	
 		var comment = prompt("Comment, please dont be rude!!");
 
 		var commentObj = {
@@ -40,12 +43,25 @@ Template.viewStories.events({
 		Meteor.call("addComment", this._id, commentObj);
 	},
 	'click .up': function (event, template) {
-		console.log("up");
+		
 		Meteor.call("likeStory", this._id,Meteor.userId());
 	},
 	'click .down': function (event, template) {
-		console.log("down");
+		
 		Meteor.call("dislikeStory", this._id,Meteor.userId());
+	},
+	'click .sendtweet': function (event, template) {
+		var tweet = prompt("Send this tweet!");
+		
+		Meteor.call("postTweet", tweet, function(err,result) {
+		    if(!err) {
+		        alert("Tweet posted");
+		    }else{
+		    	alert("Your twitter account is not linked!");
+		    }
+		});
 	}
 
+
 });
+
