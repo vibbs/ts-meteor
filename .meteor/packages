@@ -7,9 +7,8 @@
 meteor-platform
 iron:router
 email
-ian:accounts-ui-bootstrap-3
+accounts-ui
 accounts-password
-accounts-ui-unstyled
 jquery
 zimme:iron-router-active
 meteorhacks:npm
@@ -26,3 +25,4 @@ fortawesome:fontawesome
 accounts-twitter
 accounts-facebook
 accounts-google
+

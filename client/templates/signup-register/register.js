@@ -60,7 +60,7 @@ Template.register.events({
 			}else{
 				alert("Registration Successful! Thank You!\n Get started by creating a new story");
 				console.log(accUser);
-				Router.go('login');
+				Router.go('login1');
 				//do a send email fucntion
 			}
 		});

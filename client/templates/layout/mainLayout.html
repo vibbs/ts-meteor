@@ -2,16 +2,18 @@
 <nav class="main-nav ">
 <ul>
 
-
+	<!--
 		{{#if currentUser}}
 		<li><a href="#" id = "logout" >signout</a></li>
 		{{else}}
 		<li><a href="{{pathFor 'register'}}"
 		class="{{isActiveRoute regex='register'}}">register</a></li>
-		<li><a href="{{pathFor 'login'}}"
-		class="{{isActiveRoute regex='login'}}">login</a></li>
+		<li><a href="{{pathFor 'login1'}}"
+		class="{{isActiveRoute regex='login1'}}">login</a></li>
 
 		{{/if}}
+		-->
+		
 	<li><a href="{{pathFor 'viewStories'}}"
 		class="{{isActiveRoute regex='viewStories'}}">View Stories</a>
 	</li>
@@ -22,6 +24,8 @@
 	{{/if}}
 	<li><a href="{{pathFor 'home'}}"
 		class="{{isActiveRoute regex='home'}}">home</a></li>
+	<li >{{> loginButtons}}</li>
+
 		
 		
 	
