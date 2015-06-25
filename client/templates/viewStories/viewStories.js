@@ -53,13 +53,7 @@ Template.viewStories.events({
 	'click .sendtweet': function (event, template) {
 		var tweet = prompt("Send this tweet!");
 		
-		Meteor.call("postTweet", tweet, function(err,result) {
-		    if(!err) {
-		        alert("Tweet posted");
-		    }else{
-		    	alert("Your twitter account is not linked!"+err);
-		    }
-		});
+		//call post fucntion
 	}
 
 
