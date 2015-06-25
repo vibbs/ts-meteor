@@ -1,4 +1,4 @@
-var twitter = new TwitterApi();
+var twitter = Meteor.npmRequire('twitter-api');
 
 Meteor.methods({
     postTweet: function (text) {

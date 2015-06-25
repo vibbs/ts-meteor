@@ -57,7 +57,7 @@ Template.viewStories.events({
 		    if(!err) {
 		        alert("Tweet posted");
 		    }else{
-		    	alert("Your twitter account is not linked!");
+		    	alert("Your twitter account is not linked!"+err);
 		    }
 		});
 	}

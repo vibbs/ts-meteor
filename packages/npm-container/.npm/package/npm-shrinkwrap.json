@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "twitter-api": {
+      "version": "1.0.4"
+    }
+  }
+}
