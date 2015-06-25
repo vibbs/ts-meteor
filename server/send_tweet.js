@@ -1,5 +1,5 @@
 Meteor.startup(function () {
-    var twitter = new Meteor.npmRequire('twit');
+    //var twitter = new Meteor.npmRequire('twit');
 });
 
 
