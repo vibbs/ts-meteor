@@ -36,15 +36,23 @@
 		<a href="{{pathFor 'onestoryView'}}">{{title}}</a> 
 		
 		</div>
-
-<div class = "col-md-1 delete">
-<i class="fa fa-comment-o"></i>
-<i class="fa fa-thumbs-down"></i> 
-<i class="fa fa-thumbs-o-up"></i>
-{{#if bool}}
-
-		 <img class="icon" src="/images/delete.png" style="width:20px; height:20px;"> 
 		
+
+
+
+<div class = "col-md-1 ">
+
+{{#if bool}}
+		<div class="comment"><i class="fa fa-thumbs-down"></i></div>
+		<div class="up"> <i class="fa fa-comment-o"></i></div>
+		<div class="down"><i class="fa fa-thumbs-o-up"></i></div>
+		{{#each comments}}
+		{{comment}}
+		{{/each}}
+
+		<div class = "delete">
+		 <img class="icon" src="/images/delete.png" style="width:20px; height:20px;"> 
+		</div>
 		{{/if}}</div>
 
 	

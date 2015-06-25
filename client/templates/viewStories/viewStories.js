@@ -28,6 +28,24 @@ Template.viewStories.events({
 			Meteor.call("updateStoryTitle",this._id, newTitle);
 		};
 		
+	},
+	'click .comment': function (event, template) {
+		console.log("comment");
+		var comment = prompt("Comment, please dont be rude!!");
+
+		var commentObj = {
+				comment : comment,
+				user_id : Meteor.userId()
+			};
+		Meteor.call("addComment", this._id, commentObj);
+	},
+	'click .up': function (event, template) {
+		console.log("up");
+		Meteor.call("likeStory", this._id,Meteor.userId());
+	},
+	'click .down': function (event, template) {
+		console.log("down");
+		Meteor.call("dislikeStory", this._id,Meteor.userId());
 	}
 
 });

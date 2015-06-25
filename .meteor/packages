@@ -23,3 +23,6 @@ cfs:filesystem
 cfs:ejson-file
 fortawesome:fontawesome
 
+accounts-twitter
+accounts-facebook
+accounts-google
