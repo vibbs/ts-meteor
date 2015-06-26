@@ -17,5 +17,7 @@ Meteor.publish('categories', function(){
 	return Categories.find();
 });
 Meteor.publish('users', function(){
-	return Meteor.users.find();
+	return Meteor.users.find({},{
+		fields : {username :1}
+	});
 });
