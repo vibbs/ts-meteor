@@ -31,7 +31,8 @@
 		
 
 		<div class = "col-md-5">
-		<a href="{{pathFor 'onestoryView'}}">{{title}}</a> 
+		<a href="{{pathFor 'onestoryView'}}">{{title}}</a> <br>
+		-by {{thisname}}
 		
 		</div>
 		
@@ -58,11 +59,19 @@
 <div class = "col-md-3">
 Comments:: <br>
 			{{#each comments}}
-		{{comment}}<br>
+		{{> commentline}}<br>
 		{{/each}}
 			</div>
 
-	
-
 </template>
 
+
+
+
+
+	
+
+<template name= "commentline" >
+{{comment}} - by {{thisname}}
+
+</template>

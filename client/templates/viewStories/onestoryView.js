@@ -32,6 +32,11 @@ Template.alllines.helpers({
 		
 		return Meteor.userId()==this.line_creator_id?  true :false;
 		//return true;
+	},
+	thisname : function(){
+		var obj = Meteor.users.findOne({_id: this.line_creator_id});
+		console.log(this.line_creator_id);
+		return obj.username;
 	}
 });
 
@@ -117,6 +122,9 @@ Template.onestoryView.events({
 	},
 	'click .endStory' : function(){
 		Meteor.call("endStory", this._id);
+	},
+	'click .restartStory' : function(){
+		Meteor.call("restartStory", this._id);
 	}
 
 });

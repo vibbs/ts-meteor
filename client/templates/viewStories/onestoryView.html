@@ -7,10 +7,12 @@
 
 		<div class=" col-md-3">
 		<h3>
+		{{#if currentUser}}
 		<i class="fa fa-thumbs-down down"></i>
 		<i class="fa fa-comment-o comment"></i>
 		<i class="fa fa-thumbs-o-up up"></i>
 		Likes: {{count}} 
+		{{/if}}
 		</h3>
 		</div>
 
@@ -19,6 +21,8 @@
 		{{#if bool}}
 		<button class="endStory">Endit</button>
 		{{/if}}
+		{{else}}
+		<button class="restartStory">Did it?</button>
 		{{/if}}
 		</div>
 		
@@ -44,7 +48,7 @@
 	<input id="media" type="file" accept="image/gif, image/jpeg, image/png" onchange="readURL(this);" >
 	<br>
 		<img id="img_display" src="#" alt = ""/><br>
-		Add visiual to the story<br>
+		Add visual to the story<br>
 		<button class="submitStory">Submit</button>
 		{{/if}}
 
@@ -78,11 +82,12 @@
 	
 		<img class="icon" src="/images/edit.png" style="width:20px; height:20px;">
 		
-		{{/if}}</div>
-		<div class = "col-md-6">
+	{{/if}}</div>
+		<div class = "col-md-5">
 		 {{text}}
 		 </div>
-		 <div class = "col-md-4">
+		 <div class="col-md-5">- {{thisname}}</div>
+		 <div class = "col-md-3">
 		{{#if media_file_id}}
 		
 		

@@ -1,6 +1,7 @@
 <template name="mainLayout">
 <nav class="main-nav navbar navbar-default">
 <div class="container"><div class="navbar-header">
+<h3>KATHA</h3>
 <ul class="nav navbar-nav navbar-left">
 
 	<!--
@@ -14,6 +15,9 @@
 
 		{{/if}}
 		-->
+		<li>
+			
+		</li>
 		{{#if currentUser}}
 	<li><a href="{{pathFor 'userDashBoard'}}"
 		class="{{isActiveRoute regex='userDashBoard'}}">User Dash Board</a>
@@ -39,5 +43,12 @@
 </div></div>
 
 </nav>
+
+<div class="footer col-sm-12">
+      <div class="container">
+        <p class="muted credit">by Vaibhav Doddihal    <i class="fa fa-cc"></i>
+</p>
+      </div>
+    </div>
 {{> yield}}
 </template>

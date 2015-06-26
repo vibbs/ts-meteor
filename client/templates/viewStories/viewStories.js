@@ -4,6 +4,13 @@ Template.viewStories.helpers({
 	}
 
 });
+Template.commentline.helpers({
+	thisname : function(){
+		var obj = Meteor.users.findOne({_id: this.user_id});
+		return obj.username;
+	}
+
+});
 
 Template.allStories.helpers({
 	bool : function(){
@@ -13,6 +20,10 @@ Template.allStories.helpers({
 	count : function(){
 		var obj = Story.findOne({ _id: this._id});
 		return obj.like_count;
+	},
+	thisname : function(){
+		var obj = Meteor.users.findOne({_id: this.creator_id});
+		return obj.username;
 	}
 
 });
