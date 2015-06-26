@@ -32,7 +32,7 @@
 
 		<div class = "col-md-5">
 		<a href="{{pathFor 'onestoryView'}}">{{title}}</a> <br>
-		-by {{thisname}}
+		{{#if thisname}} -by {{thisname}} {{/if}}
 		
 		</div>
 		
@@ -72,6 +72,7 @@ Comments:: <br>
 	
 
 <template name= "commentline" >
-{{comment}} - by {{thisname}}
+
+{{comment}} {{#if thisname}}- by {{thisname}} {{/if}}
 
 </template>
