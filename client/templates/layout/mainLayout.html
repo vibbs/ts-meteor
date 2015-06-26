@@ -14,6 +14,11 @@
 
 		{{/if}}
 		-->
+		{{#if currentUser}}
+	<li><a href="{{pathFor 'userDashBoard'}}"
+		class="{{isActiveRoute regex='userDashBoard'}}">User Dash Board</a>
+	</li>
+	{{/if}}
 		
 	<li><a href="{{pathFor 'viewStories'}}"
 		class="{{isActiveRoute regex='viewStories'}}">View Stories</a>

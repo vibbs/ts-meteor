@@ -1,6 +1,18 @@
 <template name="home">
-<div>
+<div class="col-md-12">
 	<div class="col-md-4"><h3>About</h3>
+	
+	<h4>"KATHA" : means story.</h4>
+	<p>
+	So this application is all about stories.<br>
+	Story telling is human's core instinct, and here thisplatform provides people from all aroung the world to start and contribute to stories created by a person living miles from you.<br>
+	<br>
+	So feel free to explore.
+	<a href="{{pathFor 'startStory'}}"
+		class="{{isActiveRoute regex='startStory'}}"><button id = "startButton">Start Story</button></a>
+	<a href="{{pathFor 'viewStories'}}"
+		class="{{isActiveRoute regex='viewStories'}}"><button >View Stories</button></a>
+	</p>
 	</div>
 
 
@@ -14,6 +26,14 @@
 		Something from the API's
 	</h3></div>
 </div>
+
+ <div class="footer col-sm-12">
+      <div class="container">
+        <p class="muted credit">by Vaibhav Doddihal    <i class="fa fa-cc"></i>
+</p>
+      </div>
+    </div>
+ 
 </template>
 
 <template name="topfive">

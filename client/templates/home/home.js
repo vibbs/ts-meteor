@@ -8,3 +8,11 @@ Template.home.helpers({
 		return objarr.slice(0,5);
 	}
 });
+
+Template.home.events({
+	'click #startButton' : function(){
+		if(!Meteor.userId()){
+			alert("You need to login to use this function!");
+		}
+	}
+});
