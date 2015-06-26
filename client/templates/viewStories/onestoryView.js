@@ -5,23 +5,24 @@ Template.onestoryView.helpers({
 	id : function(){
 		Session.set('storyID',this._id);
 	},
-	'click .up': function (event, template) {
-		
-		Meteor.call("likeStory", this._id,Meteor.userId());
+	count : function(){
+		var obj = Story.findOne({ _id: this._id});
+		return obj.like_count;
 	},
-	'click .down': function (event, template) {
+	bool : function(){
 		
-		Meteor.call("dislikeStory", this._id,Meteor.userId());
+		return Meteor.userId()==this.creator_id?  true :false
+		//return true;
 	},
-	'click .comment': function (event, template) {
-	
-		var comment = prompt("Comment, please dont be rude!!");
+	ended : function(){
+		var obj = Story.findOne({ _id: this._id});
 
-		var commentObj = {
-				comment : comment,
-				user_id : Meteor.userId()
-			};
-		Meteor.call("addComment", this._id, commentObj);
+		if(obj.notEnded != null){
+			return obj.notEnded;
+		}else{
+			return true;
+		}
+
 	}
 
 });
@@ -95,6 +96,27 @@ Template.onestoryView.events({
 			Meteor.call("updateStoryLine",Session.get('storyID'),this._id, newStoryline);
 		};
 		
+	},
+	'click .up': function (event, template) {
+			console.log("up");
+		Meteor.call("likeStory", this._id,Meteor.userId());
+	},
+	'click .down': function (event, template) {
+		console.log("down");
+		Meteor.call("dislikeStory", this._id,Meteor.userId());
+	},
+	'click .comment': function (event, template) {
+	console.log("comment");
+		var comment = prompt("Comment, please dont be rude!!");
+
+		var commentObj = {
+				comment : comment,
+				user_id : Meteor.userId()
+			};
+		Meteor.call("addComment", this._id, commentObj);
+	},
+	'click .endStory' : function(){
+		Meteor.call("endStory", this._id);
 	}
 
 });
