@@ -45,10 +45,11 @@
 {{#if currentUser}}<br>
 	<h5>Next Story line:</h5>
 	<input id="story_line" type="textarea" placeholder="Story Line" /><br>
+	<br>Add visual to the story<br>
 	<input id="media" type="file" accept="image/gif, image/jpeg, image/png" onchange="readURL(this);" >
 	<br>
 		<img id="img_display" src="#" alt = ""/><br>
-		Add visual to the story<br>
+		
 		<button class="submitStory">Submit</button>
 		{{/if}}
 

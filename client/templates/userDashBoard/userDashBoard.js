@@ -1,28 +1,26 @@
 Template.userDashBoard.helpers({
 	test :function  () {
-		console.log(this._id);
+
 		return Meteor.userId();
 	},
 	story : function(){
 		
 		var arr = Story.find({creator_id : Meteor.userId()});
-		console.log(arr);
+
 		return arr;
 	},
 	contributed: function () {
 		//var arr = Story.find({storyLines: {line_creator_id:Meteor.userId()}});
-		console.log("belwo is arg");
+
 		
 		var arrStr = [];
 		var myCursor= Story.find().fetch();
 
-		console.log(myCursor);
 		
 		$.each( myCursor, function( key, value ) {
-		console.log("key" );
-		console.log(value._id );
+
 		
-		console.log(key);  
+
 		for ( var i = 0;  i< Meteor.user().profile.storyLineWrote.length;i++) {  
 		var obj = Story.findOne({$and : [{_id:value._id}, {'storyLines.line_creator_id' : Meteor.user().profile.storyLineWrote[i]}]});
 		   if(obj){ arrStr.push(obj);}
@@ -45,7 +43,7 @@ Template.userDashBoard.helpers({
 		        });
 		        if (unique)  cleaned.push(itm);
 		    });
-		console.log(arrStr.length);
+
 	
 
 		return cleaned ;

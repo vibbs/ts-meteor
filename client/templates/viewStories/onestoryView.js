@@ -35,7 +35,7 @@ Template.alllines.helpers({
 	},
 	thisname : function(){
 		var obj = Meteor.users.findOne({_id: this.line_creator_id});
-		console.log(this.line_creator_id);
+		
 		return obj.username;
 	}
 });
@@ -53,7 +53,7 @@ Template.onestoryView.events({
 		if(file){
 			fileObj = Media.insert(file);
 		}
-		template.find("#story_line").value = "";
+		
 
         //story object: makes better data structure:
         
@@ -77,8 +77,9 @@ Template.onestoryView.events({
 		    }
 		}
 
-		var responseUpdate = Meteor.users.update({_id:Meteor.user()._id}, { $push: {'profile.storyLineWrote' : Meteor.userId()} });
-		console.log(responseUpdate);
+		 Meteor.users.update({_id:Meteor.user()._id}, { $push: {'profile.storyLineWrote' : Meteor.userId()} });
+		
+		template.find("#story_line").value = "";
 
         template.find("#media").value = null;
         template.find("#media_url").value = null;

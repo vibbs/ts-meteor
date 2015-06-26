@@ -8,6 +8,7 @@
 <div>
 	Title:<input id="story_title" type="text" placeholder="Title" /><br>
 	Description:<input id="story_line" type="textarea" placeholder="First Story Line" /><br>
+
 	Category:<select id= "category">
 		{{#each cat}}
 		 <option  value = "{{text}}">{{text}}</option>
@@ -16,10 +17,10 @@
 
 	</select><br>
 	
-
+	<br>Add visual to the story<br>
 	<input id="media" type="file" accept="image/gif, image/jpeg, image/png" onchange="readURL(this);" /><br>
 	<img id="img_display" src="#" alt = ""/><br>
-	Add visual to the story<br>
+	
 	<button class="submitStory">Submit</button>
 </div>
 

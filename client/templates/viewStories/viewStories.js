@@ -14,7 +14,7 @@ Template.commentline.helpers({
 
 Template.allStories.helpers({
 	bool : function(){
-		console.log(this.creator_id);
+		
 		return Meteor.userId()==this.creator_id?  true :false;
 	},
 	count : function(){
@@ -64,6 +64,13 @@ Template.viewStories.events({
 	'click .sendtweet': function (event, template) {
 		var tweet = prompt("Send this tweet!");
 		
+		Meteor.call("postTweet", tweet +"from http://katha.herokuapp.com/", function(err,result) {
+    		if(!err) {
+       		 alert("Tweet posted");
+    		}else{
+    			alert("falied!")
+    		}
+		});
 		//call post fucntion
 	}
 

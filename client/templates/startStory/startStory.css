@@ -1,0 +1,11 @@
+#story_line {
+	width :300px;
+	height: 100px;
+}
+#story_title {
+	width :300px;
+	margin-left: 45px;
+}
+#category {
+	margin-left: 15px;
+}

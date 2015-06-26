@@ -1,54 +1,69 @@
 <template name="mainLayout">
 <nav class="main-nav navbar navbar-default">
-<div class="container"><div class="navbar-header">
-<h3>KATHA</h3>
-<ul class="nav navbar-nav navbar-left">
 
-	<!--
-		{{#if currentUser}}
-		<li><a href="#" id = "logout" >signout</a></li>
-		{{else}}
-		<li><a href="{{pathFor 'register'}}"
-		class="{{isActiveRoute regex='register'}}">register</a></li>
-		<li><a href="{{pathFor 'login1'}}"
-		class="{{isActiveRoute regex='login1'}}">login</a></li>
 
-		{{/if}}
-		-->
-		<li>
+<div class="maintitle">
+<h3>
+			KATHA
+
+</h3>
+</div>
+
+
+
+<div class="container" >
+
+<div class="navbar-header" style="float: right; margin-right : 100px;">
+		
+		<ul class="nav navbar-nav " >
+
+			<!--
+				{{#if currentUser}}
+				<li><a href="#" id = "logout" >signout</a></li>
+				{{else}}
+				<li><a href="{{pathFor 'register'}}"
+				class="{{isActiveRoute regex='register'}}">register</a></li>
+				<li><a href="{{pathFor 'login1'}}"
+				class="{{isActiveRoute regex='login1'}}">login</a></li>
+
+				{{/if}}
+				-->
+
+			{{#if currentUser}}
+			<li><a href="{{pathFor 'userDashBoard'}}"
+				class="{{isActiveRoute regex='userDashBoard'}}">UserDashBoard</a>
+			</li>
+			{{/if}}
+
+			<li><a href="{{pathFor 'home'}}"
+				class="{{isActiveRoute regex='home'}}">home</a></li>
+
+			{{#if currentUser}}
+			<li><a href="{{pathFor 'startStory'}}"
+				class="{{isActiveRoute regex='startStory'}}">Start Story</a>
+			</li>
+			{{/if}}
+				
+			<li><a href="{{pathFor 'viewStories'}}"
+				class="{{isActiveRoute regex='viewStories'}}">View Stories</a>
+			</li>
 			
-		</li>
-		{{#if currentUser}}
-	<li><a href="{{pathFor 'userDashBoard'}}"
-		class="{{isActiveRoute regex='userDashBoard'}}">User Dash Board</a>
-	</li>
-	{{/if}}
-		
-	<li><a href="{{pathFor 'viewStories'}}"
-		class="{{isActiveRoute regex='viewStories'}}">View Stories</a>
-	</li>
-	{{#if currentUser}}
-	<li><a href="{{pathFor 'startStory'}}"
-		class="{{isActiveRoute regex='startStory'}}">Start Story</a>
-	</li>
-	{{/if}}
-	<li><a href="{{pathFor 'home'}}"
-		class="{{isActiveRoute regex='home'}}">home</a></li>
-	<li >{{> loginButtons}}</li>
+			
+			<li class="log">{{> loginButtons}}</li>
 
-		
-		
-	
-</ul>
+		</ul>
 </div></div>
 
 </nav>
 
 <div class="footer col-sm-12">
       <div class="container">
-        <p class="muted credit">by Vaibhav Doddihal    <i class="fa fa-cc"></i>
-</p>
+        <p class="muted credit">by Vaibhav Doddihal <i class="fa fa-cc"></i> </p>
       </div>
-    </div>
+</div>
+
+
 {{> yield}}
+
+
 </template>
