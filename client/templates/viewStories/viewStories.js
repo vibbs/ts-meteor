@@ -63,7 +63,8 @@ Template.viewStories.events({
 	},
 	'click .sendtweet': function (event, template) {
 		var tweet = prompt("Send this tweet!");
-		
+		//call post fucntion
+		/*
 		Meteor.call("postTweet", tweet +"from http://katha.herokuapp.com/", function(err,result) {
     		if(!err) {
        		 alert("Tweet posted");
@@ -71,7 +72,9 @@ Template.viewStories.events({
     			alert("falied!")
     		}
 		});
-		//call post fucntion
+
+*/
+		
 	}
 
 
