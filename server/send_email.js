@@ -1,12 +1,12 @@
 if(Meteor.isServer){
 Meteor.methods({
-	//to do : add company name in the subject & send the link in hte function call
-	"sEmail" : function(email,name,lname, link){
+	
+	"sEmail" : function(email){
 		Email.send({
 			to: email,
-			from: 'ronnie.simonelli@gmail.com',
-			subject: 'ESG Compass',
-			text: "test email to,"+name+lname+"Please take this survey"+link+""
+			from: 'katha@gmail.com',
+			subject: 'Katha',
+			text: "Visit http://katha.herokuapp.com/ to explore more."
 
 		});
 		console.log(email+"email sent");
