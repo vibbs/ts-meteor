@@ -71,7 +71,7 @@ Template.onestoryView.events({
 		    }
 		}
 
-		var responseUpdate = Meteor.users.update({_id:Meteor.user()._id}, { $push: {'profile.storyLineWrote' : res.storyLines[lastKey]._id} });
+		var responseUpdate = Meteor.users.update({_id:Meteor.user()._id}, { $push: {'profile.storyLineWrote' : Meteor.userId()} });
 		console.log(responseUpdate);
 
         template.find("#media").value = null;
