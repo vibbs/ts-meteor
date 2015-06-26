@@ -51,7 +51,7 @@ Template.userDashBoard.helpers({
 		return cleaned ;
 	},
 	name : function(){
-		return Meteor.user().profile.first_name;
+		return Meteor.user().profile.username;
 	}
 });
 
